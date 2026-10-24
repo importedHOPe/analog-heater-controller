@@ -1,0 +1,11 @@
+scenario,metric,value,unit,status,notes
+thermostat_45_50C,simulation_duration,1800,s,simulated,From current screenshots
+thermostat_45_50C,heater_power,1500,W,model parameter,Verify in model
+thermostat_45_50C,initial_water_temperature,25,degC,model parameter,From scope
+thermostat_45_50C,thermostat_on_threshold,45,degC,model parameter,Inferred from plot
+thermostat_45_50C,thermostat_off_threshold,50,degC,model parameter,Inferred from plot
+thermostat_45_50C,electrical_energy,0.1108,kWh,simulated,Displayed result; verify
+thermostat_45_50C,average_electrical_power,221.7,W,simulated,Displayed result; verify
+thermostat_45_50C,duty_cycle,14.78,%,simulated,Displayed result; verify
+thermostat_45_50C,equivalent_heater_on_time,266,s,simulated,Displayed result; verify
+thermostat_45_50C,integrated_energy_raw,399000.0,J,simulated,Displayed rounded result
