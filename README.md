@@ -34,13 +34,6 @@ Top-level functional sections:
 4. Net heat flow, gain `1/(m_water × cp_water)`, and temperature integrator
 5. Electrical energy integrator and result conversions
 
-
-## Software Requirements
-
-- **MATLAB:** 26.1.0.3312084 (R2026a) Update 4
-- **Simulink:** Version 26.1 (R2026a)
-- **Operating system:** Windows 11
-
 ### Running the Model
 
 1. Open the project folder in MATLAB.
@@ -49,6 +42,11 @@ Top-level functional sections:
 4. Run the simulation with a stop time of 1800 seconds.
 5. Compare the temperature and heater-state scopes with the documented baseline results.
 
+## Software Requirements
+
+- **MATLAB:** 26.1.0.3312084 (R2026a) Update 4
+- **Simulink:** Version 26.1 (R2026a)
+- **Operating system:** Windows 11
 
 ## Repository layout
 - `heater_parameters.m`: defines the MATLAB workspace parameters
@@ -61,14 +59,19 @@ Top-level functional sections:
 Open the `.slx` model in a compatible MATLAB/Simulink release, confirm parameters and stop time, then run. Exact reproducibility requires the actual model and its parameter values; screenshots alone are insufficient.
 
 ## Planned work
-- [ ] Add the actual `.slx` model and MATLAB/Simulink version.
-- [ ] Add clean diagram and plot exports.
-- [ ] Document all parameters and justify `UA` and `η`.
-- [ ] Add continuous-ON baseline using the same thermal plant.
-- [ ] Run sensitivity analysis for uncertain parameters.
-- [ ] Add boiling/evaporation only after validating the current model.
-- [ ] Document the analog sensor/comparator/latch/relay circuit.
-- [ ] Add hardware measurements only after safe, instrumented validation.
+
+- [ ] Finalise the analog circuit documentation, including the temperature sensor, dual-threshold comparators, SR-latch logic, and relay interface.
+- [ ] Verify the original circuit schematic, component part numbers, pin connections, and threshold calculations.
+- [ ] Recreate the verified analog circuit schematic in Altium Designer.
+- [ ] Run schematic electrical-rule checks (ERC) and resolve connectivity or design warnings.
+- [ ] Design a two-layer PCB in Altium Designer with organised routing, appropriate grounding, decoupling, and connector placement.
+- [ ] Complete PCB design-rule checks (DRC) and prepare fabrication outputs when the design is verified.
+- [ ] Refine the existing MATLAB/Simulink thermal model and document the assumptions behind the heat-loss coefficient (`UA`) and transfer efficiency (`η`).
+- [ ] Add a continuous-ON heater baseline using the same thermal plant and compare temperature and electrical energy consumption.
+- [ ] Perform sensitivity analysis on uncertain thermal parameters.
+- [ ] Extend the thermal model to include boiling and evaporation, with clearly stated assumptions.
+- [ ] Add clean circuit schematics, PCB layouts, Simulink diagrams, and labelled simulation plots to the repository.
+- [ ] Validate the controller through safe, instrumented hardware testing and document measured results when available.
 
 ## Safety
 Mains-powered immersion heaters near water can cause fatal electric shock, burns, fire, or equipment damage. This project is not a certified controller. Never leave a prototype unattended or bypass built-in protection. A physical mains implementation requires qualified review, proper isolation/enclosure, rated switching and overcurrent protection, and independent over-temperature and dry-run protection.
